@@ -111,7 +111,7 @@ var number = winnerList.length;
                 ctx.translate(radius, radius);
                 ctx.rotate(arg * step);
                 ctx.textAlign = 'center';
-                ctx.font = "8px Microsoft YaHei";
+                ctx.font = "18px Microsoft YaHei";
                 ctx.fillStyle = color[3];
                 ctx.fillText(winnerList[arg].name, 0, -100, 50);
                 ctx.closePath();
@@ -146,10 +146,9 @@ var number = winnerList.length;
             animateTo:2880 - angles,
             duration:8000,
             callback:function (){
-							console.log('item', item)
-						$('.mode').css({"display": "flex"});
 						$('.mode img').attr("src", item.logo);
 						$('.mode p').text('您可以选择吃'+(item.name==='神秘大奖'?'屎':item.name));
+						$('.mode').css({"display": "flex"});
 						$('#tupBtn').attr("disabled", false);
 						$('.mode').on('click', function (){
 							$('.mode').css({"display": "none"});
@@ -167,7 +166,7 @@ var number = winnerList.length;
         $.each(winnerList, function (i, item) {
             randomRate.push(item.probability)
         })
-        var item = rnd(randomRate);
+        var item = rnd(randomRate)||'6';
 				console.log('item', item);
         runCup(item, winnerList[item]);
     })
